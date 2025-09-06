@@ -56,7 +56,11 @@ function setToken(res, token) {
 }
 
 function deleteCurrentToken(res) {
-  res.clearCookie("token", { httpOnly: true, secure: env.isProd });
+  res.clearCookie("token", {
+    httpOnly: true,
+    secure: env.HTTP_SECURE && env.isProd,
+    sameSite: env.SAME_SITE,
+  });
 }
 
 async function generateId(query, domain_id) {
