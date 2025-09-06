@@ -50,7 +50,8 @@ function setToken(res, token) {
   res.cookie("token", token, {
     maxAge: 1000 * 60 * 60 * 24 * 7, // expire after seven days
     httpOnly: true,
-    secure: env.isProd
+    secure: env.HTTP_SECURE && env.isProd,
+    sameSite: env.SAME_SITE,
   });
 }
 

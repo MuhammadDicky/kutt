@@ -66,6 +66,8 @@ const spec = {
   REPORT_EMAIL: str({ default: "" }),
   CONTACT_EMAIL: str({ default: "" }),
   NODE_APP_INSTANCE: num({ default: 0 }),
+  HTTP_SECURE: bool({ default: true }),
+  SAME_SITE: str({ default: undefined }),
 };
 
 for (const key in spec) {
